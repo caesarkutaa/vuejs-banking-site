@@ -30,8 +30,11 @@
 </template>
   
   <script>
-  import axios from 'axios'
+  import sweetalert from 'sweetalert'
+import axios from 'axios';
+  
   export default {
+    props : ["baseURL"],
     data() {
       return {
         email: '',
@@ -39,26 +42,27 @@
         formErrors: {},
       };
     },
-   props : ["baseURL"],
     methods: {
-      handleSubmit() {
+     async handleSubmit() {
         // Validate form data
          const login = {
           email: this.email,
+          password:this.password
         }
           //Submit form data
         
-              axios({
+              await axios({
                 method:'post',
-                url:`${baseURL}/user/login`,
+                url:this.baseURL + "user/login",
                 data:JSON.stringify(login),
                 headers:{'Content-Type':"application/json"}
               }).then(()=>{
-                console.log("login successfully")
-                // sweetalert({
-                //         text: "Category added successfully",
-                //         icon: "success",
-                //       });
+                this.$router.replace("/");
+                swal({
+                  text: "login successfully",
+                        icon: "success",
+                      });
+                  console.log("login successfully")
               }).catch(err =>{
                 console.log(err);
               })
