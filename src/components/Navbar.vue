@@ -55,9 +55,9 @@
 			<router-link to="/contact" class="button md:mx-4">
 				<span class="text-xl hover:text-green-500">Contact</span>
 			</router-link>
-			
-			<button class="bg-red-400  hover:text-green-500 duration-300 font-sm text-white rounded py-1.5 px-4">Log in</button>
-
+			<router-link to="/login" class="button md:mx-4">
+				<span class="text-xl hover:text-green-500">login</span>
+			</router-link>
 			</li>
         </ul>
        

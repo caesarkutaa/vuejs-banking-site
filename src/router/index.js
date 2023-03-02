@@ -6,7 +6,7 @@ import UserAccount from '../views/User/UserAccount.vue'
 import FundTransfer from '../views/User/FundTransfer.vue'
 import UserAcountdetails from '../views/User/UserAcountdetails.vue'
 import NotFound from '../components/NotFound.vue'
-
+import Adminlogin from '../views/Admin/AdminLogin.vue'
 
 
 
@@ -50,13 +50,14 @@ const router = createRouter({
     {
       path: '/user/account/details',
       name: 'UserAcountdetails',
-      component: UserAcountdetails
+      component: UserAcountdetails,
     },
-    // {
-    //   path: '*',
-    //   name: 'not-found',
-    //   component: NotFound
-    // }
+    //Admin 
+    {
+      path: '/admin/login',
+      name: Adminlogin,
+      component: Adminlogin,
+    },
   
   ]
 })

@@ -2,7 +2,7 @@
     <div class="flex justify-center items-center h-screen bg-gray-100">
       <div class="w-full max-w-md">
         <div class="bg-white rounded-lg shadow-md px-8 py-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6">Log In</h2>
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Admin Log In</h2>
           <form class="space-y-6" @submit.prevent="handleSubmit">
             <div>
               <label class="block text-gray-700 font-bold mb-2" for="email">
@@ -30,7 +30,7 @@
 </template>
   
   <script>
-  import sweetalert from 'sweetalert'
+import sweetalert from 'sweetalert'
 import axios from 'axios';
   
   export default {
@@ -49,11 +49,12 @@ import axios from 'axios';
           email: this.email,
           password:this.password
         }
-          //Submit form data
+            //send request to server
+          
         
               await axios({
                 method:'post',
-                url:this.baseURL + "user/login",
+                url:this.baseURL + "admin/login",
                 data:JSON.stringify(login),
                 headers:{'Content-Type':"application/json"}
               }).then(()=>{
@@ -66,7 +67,6 @@ import axios from 'axios';
               }).catch(err =>{
                 console.log(err);
               })
-          //e.g. send request to server
           
           
         }
